@@ -1,0 +1,1 @@
+var lyricApi = "https://www.stands4.com/services/v2/lyrics.php";
