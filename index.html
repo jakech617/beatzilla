@@ -8,13 +8,13 @@
   <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
   <link rel="stylesheet" href="./assets/css/style.css" />
-  <title>Git it Done</title>
+  <title>beatzilla</title>
 </head>
 
 <body class="flex-column min-100-vh">
   <header class="hero">
-    <h1 class="app-title"><i class="fab fa-github"></i> Git it Done!</h1>
-    <p>Search for a GitHub user or click on a language to see a list of repositories and how many open issues they have!
+    <h1 class="app-title"><img src="./assets/images/beatzilla-logo.png" alt="logo"></h1>
+    <p>placeholder text
     </p>
   </header>
 
@@ -23,31 +23,32 @@
     <div class="col-12 col-md-4">
 
       <div class="card">
-        <h3 class="card-header text-uppercase">Search By User</h3>
+        <h3 class="card-header text-uppercase">Search by artist</h3>
         <form id="user-form" class="card-body">
-          <label class="form-label" for="username">Username</label>
-          <input name="username" id="username" type="text" autofocus="true" class="form-input" />
-          <button type="submit" class="btn">Get User</button>
+          <label class="form-label" for="artist">Artist</label>
+          <input name="artist" id="artist" type="text" autofocus="true" class="form-input" />
+          <button type="submit" class="btn">Search</button>
         </form>
       </div>
 
       <div class="card">
-        <h3 class="card-header text-uppercase">Search By Topic</h3>
-        <div id="language-buttons" class="card-body">
-          <button data-language="javascript" class="btn">JavaScript</button>
-          <button data-language="html" class="btn">HTML</button>
-          <button data-language="css" class="btn">CSS</button>
+        <h3 class="card-header text-uppercase">Search</h3>
+        <div id="advanced-buttons" class="card-body">
+          <button data-search="playlists" class="btn">Curated Playlists</button>
+          <button data-search="lyrics" class="btn">Lyrics</button>
+          <button data-search="similar-artists" class="btn">Similar artists</button>
         </div>
       </div>
     </div>
 
     <div class="col-12 col-md-8">
-      <h2 class="subtitle">Showing Repositories for: <span id="repo-search-term"></span></h2>
-      <div id="repos-container" class="list-group"></div>
+      <h2 class="subtitle"><span id="artist-search"></span></h2>
+      <div id="artist-container" class="list-group"></div>
     </div>
   </main>
-
-  <script src="./assets/js/homepage.js"></script>
+  <footer><p>© beatzilla 2021</p>
+    </footer>
+  <script src="./assets/js/script.js"></script>
 </body>
 
 </html>
