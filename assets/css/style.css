@@ -1,9 +1,9 @@
 :root {
-  --primary: #ccdad1;
-  --secondary: #9caea9;
+  --primary: #b0bccc;
+  --secondary: #242831;
   --tertiary: #788585;
-  --light-dark: #6f6866;
-  --dark: #38302e;
+  --red: #850101;
+  --dark: #13151a;
   --border-radius: .3rem;
 }
 
@@ -53,9 +53,10 @@ p {
   color: var(--primary);
   border: none;
   outline: none;
-  background-color: var(--light-dark);
+  background-color: var(--red);
   box-shadow: 3px 3px var(--dark);
   transform: translate(-1px, -1px);
+  color: rgb(200, 200, 200);
 }
 
  .btn:hover {
@@ -74,7 +75,7 @@ p {
   color: var(--primary);
   border: none;
   outline: none;
-  background-color: var(--light-dark);
+  background-color: var(--red);
   box-shadow: 3px 3px var(--secondary);
   transform: translate(-1px, -1px);
   display: inline-block;
@@ -93,9 +94,10 @@ p {
 }
 
 .hero {
-  padding: 3% 4%;
+  padding: 15px;
   background-color: var(--dark);
   color: var(--primary);
+  height: 160px;
 }
 
 .hero p {
@@ -104,12 +106,13 @@ p {
 
 .app-title {
   font-size: 3rem;
-  background-color: var(--primary);
-  color: var(--dark);
+  /* background-color: var(--primary); */
+  /* color: var(--dark); */
   padding: 0 10px;
   display: inline-block;
   border-radius: var(--border-radius);
-  box-shadow: 6px 5px var(--light-dark);
+  margin-left: 44%;
+  /* box-shadow: 6px 5px var(--light-dark); */
 }
 
 .list-group {
@@ -121,7 +124,7 @@ p {
   margin-bottom: 10px;
   padding: 1.5%;
   border-radius: var(--border-radius);
-  background-color: var(--light-dark);
+  background-color: var(--red);
   color: var(--primary);
   text-decoration: none;
 }
@@ -154,7 +157,7 @@ p {
 
 .card-header {
   color: var(--primary);
-  background-color: var(--dark);
+  background-color: var(--secondary);
   padding: 2.5%;
   border-radius: calc(.18rem - 1px) calc(.18rem - 1px) 0 0;
 }
@@ -180,8 +183,13 @@ p {
   padding: 3%;
   margin: 5px 0;
   font-size: 1.2rem;
-  border: 2px solid var(--light-dark);
+  border: 2px solid var(--red);
   border-radius: var(--border-radius);
+}
+
+footer {
+  margin-top: 250px;
+  text-align: center;
 }
 
 /* HEIGHT / WIDTH UTILS */
