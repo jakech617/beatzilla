@@ -56,8 +56,17 @@ discography.addEventListener('click', async function() {
             Authorization: `Bearer ${token}`
         }
     }).then(response => response.json()).then(data => console.log(data)).catch(error => console.log(error));
+        
 
 })
+
+
+    // let displayedArtists = document.createElement("h2");
+    // displayedArtists.setAttribute("id", "displayedArtists");
+    // displayedArtists.textContent = (response.tracks.tracks[0].artists[0].name);
+    // // $("#artist").text(response.tracks[0]);
+    // console.log(displayedArtists);
+
 
 function getSpotifyToken(clientId, clientSecret) {
     const formData = new URLSearchParams();
@@ -99,5 +108,3 @@ function getSpotifyToken(clientId, clientSecret) {
 //         console.log(data);
 //     })
 // })
-
-
