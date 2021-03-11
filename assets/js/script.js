@@ -37,41 +37,16 @@ function getArtists(artist) {
     })
         .then(function (data) {
             console.log(data.Similar.Results);
-            
-            // let createArtistsTableRow = document.createElement('tr');
 
             data.Similar.Results.forEach(result => {
                 let createTable = document.createElement('div');
-                // let similarListData = document.createElement('td');
                 let name = document.createElement('p');
 
                 name.textContent = result.Name;
                 createTable.appendChild(name);
 
-                // createArtistsTableRow.appendChild(similarListData);
-
-                // createTable.appendChild(createArtistsTableRow);
                 artistContainerEl.appendChild(createTable);
             });
-
-            // for (var i = 0; i < data.Similar.Results.length; i++) {
-            //     console.log(data);
-
-                // et createArtistsTableRow = document.createElement('tr');
-                // let similarListData = document.createElement('td');
-                // let name = document.createElementl('p');
-
-            //     name.textContent = data[i].html;
-
-                // similarListData.appendChild(name);
-                // createArtistsTableRow.appendChild(similarListData);
-                // tableBody.appendChild(createArtistsTableRow);
-
-                // similarArtistsContainer.appendChild(similarList);
-
-            //     // similarList.textContent(data[i].results[0].name);
-            //     console.log(similarList);
-            // }
         });
 }
 
