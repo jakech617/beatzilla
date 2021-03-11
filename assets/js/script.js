@@ -4,7 +4,7 @@ let tasteDiveUrl = "https://tastedive.com/api/similar?q=";
 let artistInputEl = document.querySelector('#artist');
 let artistContainerEl = document.querySelector('#artist-container');
 let userForm = document.querySelector("#user-form");
-const discography = document.getElementById('discogs')
+const topTracks = document.getElementById('#top-tracks');
 
 // spotify
 const spotifyId = "a7d89107396f413598b8ee57ef143c21";
@@ -39,18 +39,18 @@ function getArtists(artist) {
             console.log(data.Similar.Results);
 
             data.Similar.Results.forEach(result => {
-                let createTable = document.createElement('div');
+                let createDiv = document.createElement('div');
                 let name = document.createElement('p');
 
                 name.textContent = result.Name;
-                createTable.appendChild(name);
+                createDiv.appendChild(name);
 
-                artistContainerEl.appendChild(createTable);
+                artistContainerEl.appendChild(createDiv);
             });
         });
 }
 
-discography.addEventListener('click', async function () {
+topTracks.addEventListener('click', async function () {
     const token = await getSpotifyToken(spotifyId, spotifySecret)
 
     const artist = await fetch(`https://api.spotify.com/v1/search?q=${artistInputEl.value}&type=artist`, {
@@ -66,7 +66,6 @@ discography.addEventListener('click', async function () {
             Authorization: `Bearer ${token}`
         }
     }).then(response => response.json()).then(data => console.log(data)).catch(error => console.log(error));
-
 
 })
 
