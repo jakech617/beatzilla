@@ -14,6 +14,11 @@ beatzilla is a cool new application that allows music lovers to find an artists 
 
 Happy Artist Searching!
 
+## Demo
+![chrome-capture](https://user-images.githubusercontent.com/76062539/111007609-3d629480-835d-11eb-9ed6-53e8ba77b1ff.gif)
+
+
+
 ## License
 To use this application as your own, outside of this GitHub, you will need to obtain your own api keys/tokens from TasteDive and Spotify.
 
