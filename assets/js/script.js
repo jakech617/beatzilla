@@ -4,7 +4,8 @@ let tasteDiveUrl = "https://tastedive.com/api/similar?q=";
 let artistInputEl = document.querySelector('#artist');
 let artistContainerEl = document.querySelector('#artist-container');
 let userForm = document.querySelector("#user-form");
-const topTracks = document.getElementById('top-tracks');
+const topTracks = document.querySelector('#top-tracks');
+const similarArtists = document.querySelector("#similar-artists");
 
 // spotify
 const spotifyId = "a7d89107396f413598b8ee57ef143c21";
@@ -12,7 +13,7 @@ const spotifySecret = "a7dc91eae51d4a60b734bb9fb1423496";
 const spotifyApi = 'https://api.spotify.com/v1/search?type=album&q=';
 const redirectUri = "https://jakech617.github.io/beatzilla/callback";
 
-var formSubmitHandler = function (event) {
+let formSubmitHandler = function (event) {
     event.preventDefault();
 
     let artistSearch = artistInputEl.value.trim();
@@ -20,15 +21,20 @@ var formSubmitHandler = function (event) {
     console.log(artistSearch);
     if (artistSearch) {
         getArtists(artistSearch);
-
+        // if itemSearch in local storage does not exist or is an empty string, create a new array/if not, then take the existing array.
+        let artistArray = JSON.parse(localStorage.getItem("search")) || [];
+        // after we have our new array we push to the new array.
+        artistArray.push(artistSearch);
+        // stringify and set to local storage.
+        localStorage.setItem("search",JSON.stringify(artistArray));
         artistContainerEl.textContent = '';
         artistInputEl.value = '';
-    } else {
-        alert('Please enter a valid artist name');
+
     }
+
 };
 
-userForm.addEventListener("submit", formSubmitHandler);
+similarArtists.addEventListener("click", formSubmitHandler);
 
 function getArtists(artist) {
     artistContainerEl.innerHTML = '';
@@ -50,18 +56,19 @@ function getArtists(artist) {
                 });
             } else {
                 const image = document.createElement('img');
-                image.src = './assets/images/shin-godzilla.jpg';
+                image.src = './assets/images/shin-godzilla-editted.jpg';
                 artistContainerEl.appendChild(image);
             }
 
         }).catch(function() {
             const image = document.createElement('img');
-            image.src = './assets/images/shin-godzilla.jpg';
+            image.src = './assets/images/shin-godzilla-editted.jpg';
             artistContainerEl.appendChild(image);
         });
 }
 
-topTracks.addEventListener('click', async function() {
+topTracks.addEventListener('click', async function(event) {
+    event.preventDefault();
     artistContainerEl.innerHTML = '';
     const token = await getSpotifyToken(spotifyId, spotifySecret)
     const artist = await fetch(`https://api.spotify.com/v1/search?q=${artistInputEl.value}&type=artist`, {
@@ -90,9 +97,9 @@ topTracks.addEventListener('click', async function() {
             artistContainerEl.appendChild(createTable);
         });
     } catch(error) {
-        // So something with the error
+        // do something with the error
         const image = document.createElement('img');
-        image.src = './assets/images/shin-godzilla.jpg';
+        image.src = './assets/images/shin-godzilla-editted.jpg';
         artistContainerEl.appendChild(image);
         
     }
@@ -117,3 +124,57 @@ function getSpotifyToken(clientId, clientSecret) {
             return data.access_token;
         });
 }
+// on page load, parse from local storage to stringify and append.
+
+
+
+
+
+
+
+
+
+
+
+
+// userForm.addEventListener("submit", function(event) {
+//     event.preventDefault();
+//     const searchTerm = artistInputEl.value;
+//     console.log(searchTerm);
+//     if(searchTerm !== "") {
+//        localStorage.setItem("search",JSON.stringify(searchTerm));
+//     }
+
+ 
+    
+// })
+
+// $(userForm).click(function() {
+//     let artistInputEl = $(this).siblings("#artist").val().trim();
+//     $("#artist").val("");
+//     if (cityInputs !== "") {
+//         if (cities.indexOf(cityInputs)== -1){
+//             cities.push(cityInputs);
+//             localStorage.setItem("searches",JSON.stringify(cities));
+//             searchedCities(cityInputs);
+//         };
+//         weather(cityInputs);
+//     };
+//   });
+
+// var resultTextEl = document.querySelector('#result-text');
+// var resultContentEl = document.querySelector('#result-content');
+// var searchFormEl = document.querySelector('#search-form');
+// function getParams() {
+//     var searchParamsArr = document.location.search.split('&');
+// }
+// function initPage() {
+//     let searchTerm = JSON.parse(localStorage.getItem("search")) || [];
+//     console.log(searchTerm);
+// }
+// function openSearch() {
+//     document.getElementById("myOverlay").style.display = "block";
+//   }
+//   function closeSearch() {
+//     document.getElementById("myOverlay").style.display = "none";
+//   }
