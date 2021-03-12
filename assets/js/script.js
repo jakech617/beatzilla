@@ -4,6 +4,7 @@ let tasteDiveUrl = "https://tastedive.com/api/similar?q=";
 let artistInputEl = document.querySelector('#artist');
 let artistContainerEl = document.querySelector('#artist-container');
 let userForm = document.querySelector("#user-form");
+let artistHistory = document.querySelector("#history-body");
 const topTracks = document.querySelector('#top-tracks');
 const similarArtists = document.querySelector("#similar-artists");
 
@@ -29,8 +30,18 @@ let formSubmitHandler = function (event) {
         localStorage.setItem("search",JSON.stringify(artistArray));
         artistContainerEl.textContent = '';
         artistInputEl.value = '';
+        artistArray.forEach(artistArray => {
+            let createDiv = document.createElement('div');
+            let createP = document.createElement('p');
 
-    }
+            createP.textContent = artistArray;
+            createDiv.appendChild(createP);
+
+            artistHistory.appendChild(createDiv);
+
+
+    })
+}
 
 };
 
