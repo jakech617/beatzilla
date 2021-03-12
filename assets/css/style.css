@@ -4,7 +4,6 @@
   --tertiary: #788585;
   --red: #e70014;
   --dark: #13151a;
-  --border-radius: .3rem;
 }
 
 * {
@@ -15,7 +14,7 @@ body {
   background-color: var(--primary);
   margin: 0;
   padding: 0;
-  font-family: "IBM Plex Sans", sans-serif;
+  font-family: 'Exo 2', sans-serif;
   color: var(--dark);
   line-height: 1.5;
   font-size: 16px;
@@ -39,7 +38,8 @@ main {
 }
 
 p {
-  font-size: 1.2rem;
+  font-size: 18px;
+  line-height: 1.25;
 }
 
  .btn {
@@ -49,7 +49,7 @@ p {
   width: 100%;
   display: block;
   margin: 5px 0;
-  border-radius: var(--border-radius);
+  border-radius: .3em;
   color: var(--primary);
   border: none;
   outline: none;
@@ -60,7 +60,7 @@ p {
 }
 
  .btn:hover {
-  color: var(--primary);
+  color: var(--red);
   background-color: var(--tertiary);
   transform: translate(0, 0);
   box-shadow: 2px 2px var(--dark);
@@ -70,34 +70,11 @@ p {
   display: inline;
 }
 
-.btn-back {
-  border-radius: var(--border-radius);
-  color: var(--primary);
-  border: none;
-  outline: none;
-  background-color: var(--red);
-  box-shadow: 3px 3px var(--secondary);
-  transform: translate(-1px, -1px);
-  display: inline-block;
-  width: auto;
-  margin-top: 20px;
-  padding: 15px;
-  text-decoration: none;
-  font-size: 1.2rem;
-}
-
- .btn-back:hover {
-  color: var(--primary);
-  background-color: var(--tertiary);
-  transform: translate(0, 0);
-  box-shadow: 2px 2px var(--dark);
-}
-
 .hero {
   padding: 15px;
   background-color: var(--dark);
   color: var(--primary);
-  height: 160px;
+  height: 150px;
 }
 
 .hero p {
@@ -106,13 +83,10 @@ p {
 
 .app-title {
   font-size: 3rem;
-  /* background-color: var(--primary); */
-  /* color: var(--dark); */
-  padding: 0 10px;
+  padding: 0 5px;
   display: inline-block;
-  border-radius: var(--border-radius);
-  margin-left: 44%;
-  /* box-shadow: 6px 5px var(--light-dark); */
+  border-radius: .4em;
+  margin-left: 43%;
 }
 
 .list-group {
@@ -120,53 +94,25 @@ p {
   list-style: none;
 }
 
-.list-item {
-  margin-bottom: 10px;
-  padding: 1.5%;
-  border-radius: var(--border-radius);
-  background-color: var(--red);
-  color: var(--primary);
-  text-decoration: none;
-}
-
-.list-item:hover {
-  background-color: var(--dark);
-}
-
-.status-icon {
-  padding: 2px 5px;
-  margin: 0 5px;
-  background-color: rgba(255,255,255, 1);
-  border-radius: var(--border-radius);
-}
-
-.icon-danger {
-  color: rgb(255, 70, 70);
-}
-
-.icon-success {
-  color: rgb(29, 153, 255);
-}
-
-/* CARDS */
+/* Card containers */
 .card {
   margin: 0 0 20px 0;
   border: 3px solid var(--dark);
-  border-radius: var(--border-radius);
+  border-radius: .4em;
 }
 
 .card-header {
   color: var(--red);
   background-color: var(--secondary);
   padding: 2.5%;
-  border-radius: calc(.18rem - 1px) calc(.18rem - 1px) 0 0;
+  border-radius: .2em;
 }
 
 .card-body {
   padding: 2.5%;
 }
 
-/* FORM */
+/* Form container */
 .form-label,
 .form-input,
 .form-textarea {
@@ -184,7 +130,7 @@ p {
   margin: 5px 0;
   font-size: 1.2rem;
   border: 2px solid var(--red);
-  border-radius: var(--border-radius);
+  border-radius: .4em;
 }
 
 footer {
@@ -192,7 +138,7 @@ footer {
   text-align: center;
 }
 
-/* HEIGHT / WIDTH UTILS */
+/* Height and width */
 .min-100-vh {
   min-height: 100vh;
 }
@@ -201,13 +147,13 @@ footer {
   min-width: 100vw;
 }
 
-/* FONT UTILS */
+/* font utility for card headers */
 .text-uppercase {
   text-transform: uppercase;
 }
 
 
-/* FLEX CONTENT */
+/* Displaying content in flex format */
 .flex-row {
   display: flex;
   flex-wrap: wrap;
@@ -303,7 +249,7 @@ footer {
   flex: 0 0 100%;
 }
 
-/* col-sm */
+/* media screen formatting */
 @media screen and (min-width: 640px) {
   .col-sm-1 {
     flex: 0 0 calc(100% * 1 / 12 - 2%);
@@ -354,8 +300,7 @@ footer {
   }
 }
 
-
-/* col-md */
+/* media screen formatting */
 @media screen and (min-width: 768px) {
   .col-md-1 {
     flex: 0 0 calc(100% * 1 / 12 - 2%);
@@ -406,7 +351,7 @@ footer {
   }
 }
 
-/* col-lg */
+/* media screen formatting */
 @media screen and (min-width: 992px) {
   .col-lg-1 {
     flex: 0 0 calc(100% * 1 / 12 - 2%);
@@ -457,7 +402,7 @@ footer {
   }
 }
 
-/* col-xl */
+/* media screen formatting */
 @media screen and (min-width: 1200px) {
   .col-xl-1 {
     flex: 0 0 calc(100% * 1 / 12 - 2%);

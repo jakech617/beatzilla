@@ -36,6 +36,7 @@ let formSubmitHandler = function (event) {
 
 similarArtists.addEventListener("click", formSubmitHandler);
 
+//fetch and load data from TastDive api based on the searched artist
 function getArtists(artist) {
     artistContainerEl.innerHTML = '';
     fetch(tasteDiveUrl + artist + "&k=" + tasteDiveApi).then(function (response) {
@@ -66,7 +67,7 @@ function getArtists(artist) {
             artistContainerEl.appendChild(image);
         });
 }
-
+//search and display Spotify data based on the searched artist
 topTracks.addEventListener('click', async function(event) {
     event.preventDefault();
     artistContainerEl.innerHTML = '';
@@ -97,15 +98,14 @@ topTracks.addEventListener('click', async function(event) {
             artistContainerEl.appendChild(createTable);
         });
     } catch(error) {
-        // do something with the error
+        //if artist is not found, display image
         const image = document.createElement('img');
         image.src = './assets/images/shin-godzilla-editted.jpg';
         artistContainerEl.appendChild(image);
-        
     }
 
 });
-
+//code to grab spotify token
 function getSpotifyToken(clientId, clientSecret) {
     const formData = new URLSearchParams();
     formData.append('grant_type', 'client_credentials');
