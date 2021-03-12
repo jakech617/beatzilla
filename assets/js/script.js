@@ -4,7 +4,7 @@ let tasteDiveUrl = "https://tastedive.com/api/similar?q=";
 let artistInputEl = document.querySelector('#artist');
 let artistContainerEl = document.querySelector('#artist-container');
 let userForm = document.querySelector("#user-form");
-const topTracks = document.getElementById('#top-tracks');
+const topTracks = document.getElementById('top-tracks');
 
 // spotify
 const spotifyId = "a7d89107396f413598b8ee57ef143c21";
@@ -31,51 +31,73 @@ var formSubmitHandler = function (event) {
 userForm.addEventListener("submit", formSubmitHandler);
 
 function getArtists(artist) {
+    artistContainerEl.innerHTML = '';
     fetch(tasteDiveUrl + artist + "&k=" + tasteDiveApi).then(function (response) {
         return response.json();
 
     })
         .then(function (data) {
             console.log(data.Similar.Results);
+            if (data.Similar.Results.length > 1) {
+                data.Similar.Results.forEach(result => {
+                    let createDiv = document.createElement('div');
+                    let name = document.createElement('p');
+    
+                    name.textContent = result.Name;
+                    createDiv.appendChild(name);
+    
+                    artistContainerEl.appendChild(createDiv);
+                });
+            } else {
+                const image = document.createElement('img');
+                image.src = './assets/images/shin-godzilla.jpg';
+                artistContainerEl.appendChild(image);
+            }
 
-            data.Similar.Results.forEach(result => {
-                let createDiv = document.createElement('div');
-                let name = document.createElement('p');
-
-                name.textContent = result.Name;
-                createDiv.appendChild(name);
-
-                artistContainerEl.appendChild(createDiv);
-            });
+        }).catch(function() {
+            const image = document.createElement('img');
+            image.src = './assets/images/shin-godzilla.jpg';
+            artistContainerEl.appendChild(image);
         });
 }
 
-topTracks.addEventListener('click', async function () {
+topTracks.addEventListener('click', async function() {
+    artistContainerEl.innerHTML = '';
     const token = await getSpotifyToken(spotifyId, spotifySecret)
-
     const artist = await fetch(`https://api.spotify.com/v1/search?q=${artistInputEl.value}&type=artist`, {
         method: 'GET',
         headers: {
             Authorization: `Bearer ${token}`
         }
-    }).then(response => response.json())
+    }).then(response => response.json());
 
-    return fetch(`https://api.spotify.com/v1/artists/${artist.artists.items[0].id}/top-tracks?market=US`, {
-        method: 'GET',
-        headers: {
-            Authorization: `Bearer ${token}`
-        }
-    }).then(response => response.json()).then(data => console.log(data)).catch(error => console.log(error));
+    try {
+        const data = await fetch(`https://api.spotify.com/v1/artists/${artist.artists.items[0].id}/top-tracks?market=US`, {
+            method: 'GET',
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then(response => response.json())
 
-})
 
+        data.tracks.forEach(track => {
+            let createTable = document.createElement('div');
+            let name = document.createElement('p');
 
-// let displayedArtists = document.createElement("h2");
-// displayedArtists.setAttribute("id", "displayedArtists");
-// displayedArtists.textContent = (response.tracks.tracks[0].artists[0].name);
-// // $("#artist").text(response.tracks[0]);
-// console.log(displayedArtists);
+            name.textContent = track.name;
+            createTable.appendChild(name);
 
+            artistContainerEl.appendChild(createTable);
+        });
+    } catch(error) {
+        // So something with the error
+        const image = document.createElement('img');
+        image.src = './assets/images/shin-godzilla.jpg';
+        artistContainerEl.appendChild(image);
+        
+    }
+
+});
 
 function getSpotifyToken(clientId, clientSecret) {
     const formData = new URLSearchParams();
@@ -93,27 +115,5 @@ function getSpotifyToken(clientId, clientSecret) {
         })
         .then(function (data) {
             return data.access_token;
-        })
+        });
 }
-
-// getSpotifyToken(spotifyId, spotifySecret).then(token => {
-//     return fetch('https://api.spotify.com/v1/artists/a7d89107396f413598b8ee57ef143c21/top-tracks?market=US', {
-//         method: 'GET',
-//         headers: {
-//             Authorization: `Bearer ${token}`
-//         }
-//     }).then(response => response.json()).then(data => console.log(data))
-// });
-
-// getSpotifyToken(spotifyId, spotifySecret).then(function(token) {
-//     return fetch('https://api.spotify.com/v1/artists/0rvjqX7ttXeg3mTy8Xscbt/top-tracks/2TpxZ7JUBn3uw46aR7qd6V', {
-//         method: 'GET',
-//         headers: { 
-//              Authorization: `Bearer ${token}`
-//         }
-//     }).then(function(response) {
-//         return response.json();
-//     }).then(function(data) {
-//         console.log(data);
-//     })
-// })
