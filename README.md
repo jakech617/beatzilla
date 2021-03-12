@@ -3,6 +3,7 @@
 beatzilla is a cool new application that allows music lovers to find an artists top tracks and a list of similar artists. Explore more music from a favorite or new artist by searching for their top tracks. Want even more music? Search for a favorite artist to find a list of similar artists to explore.
 
 ## Installation
+https://jakech617.github.io/beatzilla/
 
 
 ## How to Use
