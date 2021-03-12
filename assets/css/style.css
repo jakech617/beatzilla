@@ -1,8 +1,8 @@
 :root {
-  --primary: #b0bccc;
+  --primary: #4b4e57;
   --secondary: #242831;
   --tertiary: #788585;
-  --red: #850101;
+  --red: #e70014;
   --dark: #13151a;
   --border-radius: .3rem;
 }
@@ -156,7 +156,7 @@ p {
 }
 
 .card-header {
-  color: var(--primary);
+  color: var(--red);
   background-color: var(--secondary);
   padding: 2.5%;
   border-radius: calc(.18rem - 1px) calc(.18rem - 1px) 0 0;
