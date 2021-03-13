@@ -70,6 +70,10 @@ p {
   display: inline;
 }
 
+#clear-history {
+  float: inline-end;
+}
+
 .hero {
   padding: 15px;
   background-color: var(--dark);

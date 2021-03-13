@@ -38,8 +38,7 @@ let formSubmitHandler = function (event) {
             createDiv.appendChild(createP);
 
             artistHistory.appendChild(createDiv);
-
-
+    
     })
 }
 
@@ -135,4 +134,5 @@ function getSpotifyToken(clientId, clientSecret) {
             return data.access_token;
         });
 }
+
 // on page load, parse from local storage to stringify and append.
