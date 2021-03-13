@@ -46,7 +46,7 @@ let formSubmitHandler = function (event) {
 
 similarArtists.addEventListener("click", formSubmitHandler);
 
-//fetch and load data from TastDive api based on the searched artist
+//fetch and load data from TasteDive api based on the searched artist
 function getArtists(artist) {
     artistContainerEl.innerHTML = '';
     fetch(tasteDiveUrl + artist + "&k=" + tasteDiveApi).then(function (response) {
