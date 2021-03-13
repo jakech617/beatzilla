@@ -3,6 +3,7 @@
 beatzilla is a cool new application that allows music lovers to find an artists top tracks and a list of similar artists. Explore more music from a favorite or new artist by searching for their top tracks. Want even more music? Search for a favorite artist to find a list of similar artists to explore.
 
 ## Installation
+https://jakech617.github.io/beatzilla/
 
 
 ## How to Use
@@ -13,6 +14,11 @@ beatzilla is a cool new application that allows music lovers to find an artists 
 5. If an artist is not found, you will be presented with beatzilla - he has a big apetite and loves to eat lost artists for lunch!
 
 Happy Artist Searching!
+
+## Demo
+![chrome-capture](https://user-images.githubusercontent.com/76062539/111007609-3d629480-835d-11eb-9ed6-53e8ba77b1ff.gif)
+
+
 
 ## License
 To use this application as your own, outside of this GitHub, you will need to obtain your own api keys/tokens from TasteDive and Spotify.
