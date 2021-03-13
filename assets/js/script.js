@@ -30,6 +30,7 @@ let formSubmitHandler = function (event) {
         localStorage.setItem("search",JSON.stringify(artistArray));
         artistContainerEl.textContent = '';
         artistInputEl.value = '';
+        artistHistory.textContent = '';
         artistArray.forEach(artistArray => {
             let createDiv = document.createElement('div');
             let createP = document.createElement('p');
@@ -38,6 +39,7 @@ let formSubmitHandler = function (event) {
             createDiv.appendChild(createP);
 
             artistHistory.appendChild(createDiv);
+            
     
     })
 }
@@ -80,6 +82,22 @@ function getArtists(artist) {
 //search and display Spotify data based on the searched artist
 topTracks.addEventListener('click', async function(event) {
     event.preventDefault();
+    let artistArray = JSON.parse(localStorage.getItem("search")) || [];
+        // after we have our new array we push to the new array.
+        artistArray.push(artistInputEl.value);
+        // stringify and set to local storage.
+        localStorage.setItem("search",JSON.stringify(artistArray));
+        artistHistory.textContent = '';
+        artistArray.forEach(artistArray => {
+            let createDiv = document.createElement('div');
+            let createP = document.createElement('p');
+
+            createP.textContent = artistArray;
+            createDiv.appendChild(createP);
+
+            artistHistory.appendChild(createDiv);
+        })
+
     artistContainerEl.innerHTML = '';
     const token = await getSpotifyToken(spotifyId, spotifySecret)
     const artist = await fetch(`https://api.spotify.com/v1/search?q=${artistInputEl.value}&type=artist`, {
