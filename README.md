@@ -4,7 +4,7 @@ Beatzilla is a cool new application that allows music lovers to find an artist's
 
 ## Installation
 https://jakech617.github.io/beatzilla/
-
+To avoid any CORS issues, please make sure you have the Moesif CORS Chrome extension installed and turned on before using the application.
 
 ## How to Use
 1. Enter an artist into the 'Search by Artist' text field.
