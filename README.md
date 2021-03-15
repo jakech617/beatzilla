@@ -21,6 +21,7 @@ Happy Artist Searching!
 
 
 ## License
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 To use this application as your own, outside of this GitHub, you will need to obtain your own API keys/tokens from TasteDive and Spotify.
 
 ## Contributions & Thanks
